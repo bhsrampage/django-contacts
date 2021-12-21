@@ -17,11 +17,11 @@ def addContact(request):
     if request.method == 'POST':
 
         new_contact = Contact(
-            full_name=request.POST['fullname'],
-            relationship=request.POST['relationship'],
-            email=request.POST['email'],
-            phone_number=request.POST['phone-number'],
-            address=request.POST['address'],
+            full_name=request.POST['fullname'] or "empty",
+            relationship=request.POST['relationship'] or "sample",
+            email=request.POST['email'] or "test@mail.com",
+            phone_number=request.POST['phone-number'] or "+912892802980",
+            address=request.POST['address'] or "test address",
             )
         new_contact.save()
         return redirect('/')
